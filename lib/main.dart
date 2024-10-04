@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:test_work/feature/splach/presentation/view/splach_screen.dart';
+import 'package:test_work/core/database/cache_helper.dart';
 
 import 'core/router/app_route.dart';
 
-void main(){
+void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: router,
       
     );

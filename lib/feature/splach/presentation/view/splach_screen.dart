@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_work/core/database/cache_helper.dart';
 import 'package:test_work/core/function/go_router_navigation.dart/custom_navigation.dart';
 import 'package:test_work/core/utils/app_font_style.dart';
 import 'package:test_work/core/utils/app_string.dart';
@@ -10,16 +11,26 @@ class SplachScreen extends StatefulWidget {
 
   @override
   State<SplachScreen> createState() => _SplachScreenState();
+  
 }
 
 class _SplachScreenState extends State<SplachScreen> {
+  bool onboardingVisted=CacheHelper.getvalue(key: 'visited')??false;
+
+
+  
   @override
   void initState() {
+
     super.initState();
-    Future.delayed(Duration(seconds: 2)).then((onValue){
-      customPushNavigator(context: context, path: '/test');
-    });
+    onboardingVisted==true?
+    splachScreenDalayed(path: '/test'):
+    splachScreenDalayed(path: '/onBoarding');
+    
+
   }
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -35,4 +46,11 @@ class _SplachScreenState extends State<SplachScreen> {
       ),
     );
   }
+void splachScreenDalayed({required String path}) {
+    Future.delayed(Duration(seconds: 2)).then((onValue){
+      customPushNavigator(context: context, path: path);
+    }
+    );
+  }
+  
 }
