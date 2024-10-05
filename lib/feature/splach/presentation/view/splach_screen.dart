@@ -23,8 +23,8 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   void initState() {
     print('//////////////');
-   
-   print(FirebaseAuth.instance.currentUser!.emailVerified);
+
+  //  print(FirebaseAuth.instance.currentUser!.emailVerified);
     print('//////////////');
 
 
@@ -35,8 +35,8 @@ class _SplachScreenState extends State<SplachScreen> {
 if (onboardingVisted==true) {
   FirebaseAuth.instance.currentUser==null?
    splachScreenDalayed(path: '/SignUp'):
-  //  FirebaseAuth.instance.currentUser!.emailVerified?
-    // splachScreenDalayed(path: '/HomeVire'):
+FirebaseAuth.instance.currentUser!.emailVerified?
+   splachScreenDalayed(path: '/HomeView'):
    splachScreenDalayed(path: '/SignIn');
 
   

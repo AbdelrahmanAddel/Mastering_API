@@ -31,7 +31,7 @@ void createUserWithEmailAndPassword()async{
     email: email!,
     password: password!,
   );
-  sendVerifyEmail();
+  await sendVerifyEmail();
   emit(CreateAccountSuccsseful());
 } on FirebaseAuthException catch (e) {
   if (e.code == 'weak-password') {

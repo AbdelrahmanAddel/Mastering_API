@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_work/core/function/go_router_navigation.dart/custom_navigation.dart';
 import '../../../../../core/utils/app_color.dart';
 import '../../../../../core/utils/app_string.dart';
 import '../../../../../core/utils/widget/custom_buttom.dart';
@@ -21,9 +22,10 @@ class SignUpAuthentication extends StatelessWidget {
       listener: (context, state) {
         if (state is CreateAccountSuccsseful) {
           flutterToast(
-            toastString: 'Create Account Successful',
+            toastString: 'Create Account Successful ,Please Check Mail to Verify ',
             color: Colors.green,
           );
+          customPushAndReplacementNavigator(context: context, path: '/SignIn');
         } else if (state is FailedToCreateAccount) {
           flutterToast(
             toastString: state.errorMessage,

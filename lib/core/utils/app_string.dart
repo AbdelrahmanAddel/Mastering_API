@@ -6,19 +6,16 @@ abstract class AppString {
   LoginNow=' Login Now',
   signUp='Sign Up',
   signIn='Sign In',
-
   alreadyhaveanaccount ='Already have an account ?',
   welcome='Welcome !',
   firstName='First Name',
   lastName='Last Name',
   email='Email Address',
   password='Password',
-     iHaveAgreeToOur='I have agree to our ',
-     termsandCondition='Terms and Condition',
-     welcomeBack='Welcome Back !',
-
-
-
+  iHaveAgreeToOur='I have agree to our ',
+  termsandCondition='Terms and Condition',
+  welcomeBack='Welcome Back !',
+  donthaveanaccount='Don’t have an account ?',
   onboardingOneTitle='Explore The history with\n Dalel in a smart way',
   onboardingTwoTitle='From every place\n on earth',
   onboardingThreeTitle='Using modern AI technology\n for better user experience',

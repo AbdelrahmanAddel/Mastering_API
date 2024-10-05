@@ -10,7 +10,7 @@ import 'sign_up_authentication.dart';
 
 class SignUpBody extends StatelessWidget {
   SignUpBody({super.key});
-  
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -39,32 +39,36 @@ class SignUpBody extends StatelessWidget {
             },
             labelText: AppString.email,
           ),
-          CustomTextFormFieled(
-            bottom: 19,
-            onChanged: (value) {
-              cubit.password = value;
+          BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, state) {
+              return CustomTextFormFieled(
+                bottom: 19,
+                onChanged: (value) {
+                  cubit.password = value;
+                },
+                obscureText: true,
+                labelText: AppString.password,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    cubit.changeObsecureValue();
+                    print(cubit.obsecure);
+                  },
+                  icon: Icon(
+                    cubit.obsecure == true
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                ),
+              );
             },
-            obscureText: true,
-            labelText: AppString.password,
-            suffixIcon: IconButton(
-              onPressed: () {
-                cubit.changeObsecureValue();
-                print(cubit.obsecure);
-              },
-              icon: Icon(
-                cubit.obsecure == true
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-              ),
-            ),
           ),
           const TermsAndContition(),
           const SizedBox(height: 88),
-          SignUpAuthentication(formKey: formKey,)
-    
+          SignUpAuthentication(
+            formKey: formKey,
+          )
         ],
       ),
     );
   }
 }
-
