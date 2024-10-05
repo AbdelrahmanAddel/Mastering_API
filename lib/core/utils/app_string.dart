@@ -3,10 +3,19 @@ abstract class AppString {
   skip='Skip',
   next='next',
   createAccount='Create Account',
-  LoginNow='Login Now',
+  LoginNow=' Login Now',
   signUp='Sign Up',
-  alreadyhaveanaccount ='Already have an account?',
+  signIn='Sign In',
 
+  alreadyhaveanaccount ='Already have an account ?',
+  welcome='Welcome !',
+  firstName='First Name',
+  lastName='Last Name',
+  email='Email Address',
+  password='Password',
+     iHaveAgreeToOur='I have agree to our ',
+     termsandCondition='Terms and Condition',
+     welcomeBack='Welcome Back !',
 
 
 

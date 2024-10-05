@@ -74,7 +74,7 @@ class PageViewItem extends StatelessWidget {
                       CacheHelper.setValue(key: 'visited', value: true);
                       customPushAndReplacementNavigator(
                         context: context,
-                        path: '/test',
+                        path: '/SignUp',
                       );
                       controller.nextPage(
                         duration: const Duration(seconds: 2),

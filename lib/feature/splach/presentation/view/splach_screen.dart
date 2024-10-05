@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:test_work/core/database/cache_helper.dart';
 import 'package:test_work/core/function/go_router_navigation.dart/custom_navigation.dart';
@@ -21,11 +22,30 @@ class _SplachScreenState extends State<SplachScreen> {
   
   @override
   void initState() {
+    print('//////////////');
+   
+   print(FirebaseAuth.instance.currentUser!.emailVerified);
+    print('//////////////');
+
+
+  
 
     super.initState();
-    onboardingVisted==true?
-    splachScreenDalayed(path: '/test'):
-    splachScreenDalayed(path: '/onBoarding');
+
+if (onboardingVisted==true) {
+  FirebaseAuth.instance.currentUser==null?
+   splachScreenDalayed(path: '/SignUp'):
+  //  FirebaseAuth.instance.currentUser!.emailVerified?
+    // splachScreenDalayed(path: '/HomeVire'):
+   splachScreenDalayed(path: '/SignIn');
+
+  
+} else {
+  splachScreenDalayed(path: '/onBoarding');
+  
+}
+
+
     
 
   }
