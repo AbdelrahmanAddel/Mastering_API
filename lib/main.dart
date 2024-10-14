@@ -6,7 +6,7 @@ import 'package:test_work/core/api/dio_consumer.dart';
 import 'package:test_work/core/data/cache_helper.dart';
 import 'package:test_work/core/repositry/user_repositry.dart';
 import 'package:test_work/cubit/user_cubit.dart';
-import 'package:test_work/screen/updata_user_data_view.dart';
+import 'package:test_work/screen/delete_user_account_view.dart';
 
 
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: BlocProvider(
           create: (context) => UserCubit(userRepositry: UserRepositry(api: DioConsumer(dio: Dio())), dio: DioConsumer(dio: Dio()) ,)..getUserData(),
-          child:  const UpdataUserData(),
+          child:  const DeleteUserAccount(),
         ));
   }
 }

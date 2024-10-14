@@ -18,7 +18,13 @@ final Dio dio;
     ));
   }
   @override
-  delete({required String endPoint, Object? data, Map<String, dynamic>? queryParameters}) {
+  Future <dynamic> delete({required String endPoint, Object? data, Map<String, dynamic>? queryParameters}) async{
+  try {
+  final responce =await dio.delete(endPoint,data: data,queryParameters: queryParameters);
+  return responce.data;
+} on DioException catch (e) {
+ dioError(e);
+}
    
   }
 

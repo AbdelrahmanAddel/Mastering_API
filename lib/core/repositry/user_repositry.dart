@@ -101,4 +101,18 @@ class UserRepositry {
       return left(e.error.errorMessage);
     }
   }
+
+Future<Either<String ,String>>deleteUserAccount()async{
+    try {
+  final responce =await api.delete(endPoint: EndPoint.delete,queryParameters: {
+    'id':CacheHelper.getValue(key: 'id')
+  });
+   ResponceModel model =ResponceModel.fromJson(responce);
+   return right(model.message);
+} on ServerException catch (e) {
+return left(e.error.errorMessage) ;
+}
+
+}
+
 }

@@ -69,3 +69,18 @@ final class FailerToUpdataUserData extends UserState {
 
   FailerToUpdataUserData({required this.errorMessage});
 }
+
+final class LoadingDeleteUserAccount extends UserState {}
+
+final class DeleteUserAccountSuccessful extends UserState {
+  final String successMessage;
+
+  DeleteUserAccountSuccessful({required this.successMessage});
+}
+
+final class FailerToDeleteUserAccount extends UserState {
+  final String errorMessage;
+
+  FailerToDeleteUserAccount({required this.errorMessage});
+
+}

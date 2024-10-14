@@ -2,7 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:test_work/core/api/dio_consumer.dart';
+import 'package:test_work/core/api/end_point.dart';
+import 'package:test_work/core/data/cache_helper.dart';
+import 'package:test_work/core/error/server_exception.dart';
 import 'package:test_work/core/repositry/user_repositry.dart';
+import 'package:test_work/model/responce_model.dart';
 import 'package:test_work/model/user_data_model.dart';
 
 part 'user_state.dart';
@@ -106,4 +110,15 @@ class UserCubit extends Cubit<UserState> {
       (success) => emit(UpdataDataSuccess(successMessage: success)),
     );
   }
+  //! DELETE USER ACCOUNT 
+  deleteUserAccount()async{
+    emit(LoadingDeleteUserAccount());
+ final responce =await userRepositry.deleteUserAccount();
+ responce.fold(
+  (error)=>emit(FailerToDeleteUserAccount(errorMessage: error)),
+  (success)=>emit(DeleteUserAccountSuccessful(successMessage: success))
+  );
+    
+  }
+
 }

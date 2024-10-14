@@ -3,9 +3,13 @@ class EndPoint {
   static String signUp='user/signup';
   static String signIn='user/signin';
   static String updata='user/update';
+  static String delete='user/delete';
 
 
-  
+
+   static String getEndPointWithUserId({required String endPoint,required String id}){
+    return endPoint+id;
+  }
 
  static String getUserId({required String id}){
     return 'user/get-user/$id';
